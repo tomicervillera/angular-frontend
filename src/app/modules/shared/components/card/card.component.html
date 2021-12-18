@@ -1,0 +1,15 @@
+<div class="card" style="width: 100%">
+  <img src="https://via.placeholder.com/100" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ movie.nombre | uppercase }}</h5>
+    <p class="card-text">
+      {{ movie.bio }}
+    </p>
+    <button [routerLink]="['/details', 'hero', i]" class="btn btn-primary">
+      ver detalle
+    </button>
+    <button (click)="avisarleAlPapa()" class="btn btn-primary">
+      Avisarle al papa
+    </button>
+  </div>
+</div>
