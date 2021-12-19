@@ -1,8 +1,8 @@
-<article #movies class="movies-container">
-  <section *ngFor="let heroe of heroes; let i = index" class="movies-item">
+<article #games class="cards-container">
+  <section *ngFor="let juego of juegos; let i = index" class="movies-item">
     <app-card
       (enviardatos)="recibir($event)"
-      [movie]="heroe"
+      [juego]="juego"
       [index]="i"
     ></app-card>
   </section>

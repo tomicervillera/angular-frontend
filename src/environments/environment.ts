@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://final-superheroes-backend.herokuapp.com/',
+  baseUrl: 'https://backend-express-proyecto.herokuapp.com/',
 };
 
 /*

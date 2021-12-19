@@ -14,7 +14,7 @@ import {
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit, OnDestroy, OnChanges {
-  @Input() movie: any = {};
+  @Input() juego: any = {};
   @Input('index') i: number = 0;
   @Output('enviardatos') enviar = new EventEmitter();
 

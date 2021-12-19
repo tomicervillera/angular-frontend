@@ -6,12 +6,12 @@ import {
   ElementRef,
   AfterViewInit,
 } from '@angular/core';
-import { HeroesService } from '@app/services/heroes.service';
-import { Heroe } from '@app/models/api-models';
+import { Heroe, Juego } from '@app/models/api-models';
 
 import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
 
 import { Subscription } from 'rxjs';
+import { JuegosService } from '@app/services/juegos.service';
 
 @Component({
   selector: 'app-cards',
@@ -19,25 +19,25 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit, OnDestroy, AfterViewInit {
-  heroes: Heroe[] = [];
+  juegos: Juego[] = [];
   subscription: Subscription = new Subscription();
-  @ViewChild('movies') article!: ElementRef;
+  @ViewChild('juegos') article!: ElementRef;
   // @ViewChild(LoginComponent) login!: LoginComponent;
 
-  constructor(private heroesSvc: HeroesService) {
+  constructor(private juegosSvc: JuegosService) {
     // this.heroes = this.heroesSvc.heroes;
   }
 
   ngOnInit(): void {
     // console.log('article', this.article);
-    this.subscription = this.heroesSvc
-      .getHeroes()
-      .subscribe((heroes: Heroe[]) => {
+    this.subscription = this.juegosSvc
+      .getInitialJuegos()
+      .subscribe((juegos: Juego[]) => {
         // console.log(
         //   'Respuesta del endpoint heroes desde el componente: ',
         //   heroes
         // );
-        this.heroes = heroes;
+        this.juegos = juegos;
       });
   }
 

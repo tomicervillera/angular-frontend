@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { HeroesService } from '@app/services/heroes.service';
+import { JuegosService } from '@app/services/juegos.service';
 
 @Component({
   selector: 'app-searchfield',
@@ -12,7 +12,7 @@ export class SearchfieldComponent implements OnInit {
   clear: boolean = false;
   url: string = '';
 
-  constructor(private heroes: HeroesService, private router: Router) {
+  constructor(private juegosSvc: JuegosService, private router: Router) {
     this.router.events.subscribe((event) => {
       // console.log(event);
       if (event instanceof NavigationEnd) {
@@ -28,11 +28,11 @@ export class SearchfieldComponent implements OnInit {
     $event.preventDefault();
     console.log(this.url);
     if (this.url === '/home') {
-      this.heroes.filterHeroes(this.search.trim());
+      this.juegosSvc.filterJuegos(this.search.trim());
       this.search = '';
       this.clear = true;
     } else {
-      this.heroes.filterHeroes(this.search.trim());
+      this.juegosSvc.filterJuegos(this.search.trim());
       this.search = '';
       this.clear = true;
       this.router.navigate(['/home']);
@@ -40,7 +40,7 @@ export class SearchfieldComponent implements OnInit {
   }
 
   onClear() {
-    this.heroes.resetHeroes();
+    this.juegosSvc.resetJuegos();
     this.clear = false;
   }
 }

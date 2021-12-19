@@ -1,5 +1,5 @@
 export interface Response {
-  data: Heroe[] | Movie[];
+  data: Heroe[] | Movie[] | Juego[] | Juego;
   error: boolean;
 }
 
@@ -21,4 +21,18 @@ export interface Movie {
   nombrePelicula: string;
   descripcion: string;
   __v?: number;
+}
+
+export interface Juego {
+  _id:              string;
+  id:               string;
+  idPublicador:     string;
+  idDesarrollador:  string;
+  nombre:           string;
+  precio:           string;
+  descripcion:      string;
+  img:              string;
+  url:              string;
+  género:           string;
+  fechaPublicacion: Date;
 }
