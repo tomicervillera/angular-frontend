@@ -13,13 +13,14 @@ export class LoginComponent implements OnInit {
   contrasena: string = '';
   usuario: any = {};
 
-  logged : boolean = false;
+  error: boolean = false;
+  logged: boolean = false;
   subscription: Subscription = new Subscription();
 
   constructor(private loginSrv: LoginService, private router: Router) {}
 
   ngOnInit(): void {
-    this.subscription = this.loginSrv.logged.subscribe(logged => this.logged = logged)
+    this.subscription = this.loginSrv.logged.subscribe((logged) => (this.logged = logged));
   }
 
   log() {
@@ -28,17 +29,17 @@ export class LoginComponent implements OnInit {
 
   login($event: any) {
     $event.preventDefault();
-    this.loginSrv.login(this.nombreUsuario, this.contrasena).subscribe((response : any) => {
+    this.loginSrv.login(this.nombreUsuario, this.contrasena).subscribe((response: any) => {
       this.usuario = { ...response.data };
       //console.log(this.usuario);
-      if (this.usuario.nombreUsuario){
-        this.loginSrv.changeLoggedStatus(true);
-        this.router.navigate(['/games']);
-      }
+      
     });
-
-    // this.loginSrv
-    //   .login(this.nombreUsuario, this.contrasena)
-    //   .subscribe((response: any) => (this.usuario = { ...response.data }));
+    if (this.usuario.nombreUsuario) {
+      this.loginSrv.changeLoggedStatus(true);
+      this.router.navigate(['/games']);
+    } else {
+      this.error = true;
+      console.log(`Error${this.error}`);
+    }
   }
 }

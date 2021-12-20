@@ -27,8 +27,8 @@
                                 </a>
                             </div>
                             <input id="password" type="password" class="form-control" name="password" required="" [(ngModel)]="contrasena">
-                            <div class="invalid-feedback">
-                                Se requiere contraseña
+                            <div *ngIf="error" class="text-danger font-weight-bold">
+                                Usuario o contraseña incorrecta.
                             </div>
                         </div>
 
