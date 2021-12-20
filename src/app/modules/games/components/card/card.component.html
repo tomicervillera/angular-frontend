@@ -1,13 +1,12 @@
 <div class="card" style="width: 100%">
-    <img [src]="juego.img" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{ juego.nombre }}</h5>
-      <p class="card-text">
-        {{ juego.descripcion }}
-      </p>
-      <button [routerLink]="['/games', 'details', juego._id]" class="btn btn-primary">
-        Detalles
-      </button>
-    </div>
+  <img [src]="juego.img" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ juego.nombre }}</h5>
+    <p class="card-text">
+      {{ juego.descripcion }}
+    </p>
+    <button [routerLink]="['/games', 'details', juego._id]" class="btn btn-primary">
+      Detalles
+    </button>
   </div>
-  
+</div>

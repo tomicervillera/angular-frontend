@@ -5,7 +5,6 @@ import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { GamesRoutingModule } from './games-routing.module';
-import { DetailsComponent } from './components/details/details.component';
 
 
 
@@ -14,7 +13,6 @@ import { DetailsComponent } from './components/details/details.component';
     CardsComponent,
     CardComponent,
     HomeComponent,
-    DetailsComponent
   ],
   imports: [
     CommonModule,
