@@ -5,7 +5,7 @@
     <p class="card-text">
       {{ juego.descripcion }}
     </p>
-    <button [routerLink]="['/details', 'hero', i]" class="btn btn-primary">
+    <button [routerLink]="['/details', 'hero', juego._id]" class="btn btn-primary">
       Detalles
     </button>
     <button (click)="avisarleAlPapa()" class="btn btn-primary">

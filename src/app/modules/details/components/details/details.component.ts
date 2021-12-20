@@ -1,8 +1,7 @@
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Juego } from '@app/models/api-models';
 import { JuegosService } from '@app/services/juegos.service';
-import { HeroesService } from 'src/app/shared/services/heroes.service';
 
 @Component({
   selector: 'app-details',
@@ -11,18 +10,19 @@ import { HeroesService } from 'src/app/shared/services/heroes.service';
 })
 export class DetailsComponent implements OnInit {
   juego: any = {};
-  movies: any = [];
-  constructor(
-    private actRoute: ActivatedRoute,
-    private juegosSvc: JuegosService
-  ) {
+
+  constructor(private actRoute: ActivatedRoute, private juegosSvc: JuegosService) {
     this.actRoute.params.subscribe((params) => {
-      this.juego = this.juegosSvc.getJuegoById(params['id']);
+      this.juegosSvc.getJuegoById2(params['id']).subscribe((response) => (this.juego = { ...response.data }));
       console.log(this.juego);
     });
   }
 
   ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.juegosSvc.resetJuegos();
+  }
 
   onReset() {
     this.juegosSvc.resetJuegos();

@@ -60,8 +60,14 @@ export class JuegosService {
         this.juegos$.next(data as Juego[]);
       });
   }
-  getJuegoById(id: String) {
-    //to implement
+
+  getJuegoById(id: string) {
+    return this.juegos$.value.find((juego) => (juego._id = id));
+  }
+
+  getJuegoById2(id: string) {
+    //console.log((`URL DESTINO: ${environment.baseUrl}juegos/${id}`))
+    return this.http.get<Response>(`${environment.baseUrl}juegos/${id}`);
   }
 
   filterJuegos(text: string) {
