@@ -17,11 +17,19 @@
   background-color: red;
   display: grid;
   grid-template-areas:
+    "juego"
+    "desarrollador"
+    "publicador";
+  grid-template-rows: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-areas:
     "juego juego"
     "desarrollador publicador";
-  grid-template-rows: 1fr 0.5r;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+    grid-template-rows: 1fr 0.5r;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 section#juego {
