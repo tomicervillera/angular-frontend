@@ -1,5 +1,5 @@
 export interface Response {
-  data: Heroe[] | Movie[] | Juego[] | Juego | Desarrollador | Publicador;
+  data: Heroe[] | Movie[] | Juego[] | Juego | Desarrollador | Publicador | Usuario;
   error: boolean;
 }
 
@@ -49,4 +49,13 @@ export interface Publicador {
   id:     string;
   nombre: string;
   img:    string;
+}
+
+export interface Usuario {
+  _id?:           string;
+  id?:            string;
+  nombreUsuario: string;
+  email?:         string;
+  contraseña?:    string;
+  permisos:      string;
 }

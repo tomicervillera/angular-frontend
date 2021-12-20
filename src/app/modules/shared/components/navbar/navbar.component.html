@@ -20,10 +20,12 @@
         </li>
       </ul>
       <app-searchfield></app-searchfield>
-
-      <button *ngIf="!logged" (click)="onLogin()" class="btn btn-success me-2" type="button">
+      <button *ngIf="!logged" routerLink="/auth/login" class="btn btn-success me-2" type="button">
         Iniciar Sesión
       </button>
+      <!-- <button *ngIf="!logged" (click)="onLogin()" class="btn btn-success me-2" type="button">
+        Iniciar Sesión
+      </button> -->
       <button *ngIf="logged" (click)="onLogout()" class="btn btn-danger me-2" type="button">
         Cerrar Sesión
       </button>
