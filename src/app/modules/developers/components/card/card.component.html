@@ -1,1 +1,9 @@
-<p>card works!</p>
+<div class="card shadow" style="width: 100%">
+    <img [src]="desarrollador.img" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ desarrollador.nombre }}</h5>
+      <button [routerLink]="['/developers', 'details', desarrollador._id]" class="btn btn-primary">
+        Detalles
+      </button>
+    </div>
+  </div>

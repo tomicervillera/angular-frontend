@@ -1,0 +1,15 @@
+    #grilla {
+    display: grid;
+    grid-template-areas:
+      "desarrollador";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  section#desarrollador{
+    display: grid;
+    justify-content: center;
+    grid-area: desarrollador;
+  }
+  

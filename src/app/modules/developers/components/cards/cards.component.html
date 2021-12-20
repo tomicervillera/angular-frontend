@@ -1,1 +1,5 @@
-<p>cards works!</p>
+<article #games class="cards-container">
+    <section *ngFor="let desarrollador of desarrolladores; let i = index" class="movies-item">
+        <app-card [desarrollador]="desarrollador" [index]="i"></app-card>
+    </section>
+</article>

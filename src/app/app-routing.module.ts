@@ -16,6 +16,11 @@ const routes: Routes = [
   //     import('./modules/home/home.module').then((m) => m.HomeModule),
   // },
   {
+    path: 'developers',
+    loadChildren: () =>
+      import('./modules/developers/developers.module').then((m) => m.DevelopersModule),
+  },
+  {
     path: 'games',
     loadChildren: () =>
       import('./modules/games/games.module').then((m) => m.GamesModule),
