@@ -1,29 +1,67 @@
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-8">
-        <article class="movies-container py-5">
-          <section class="movies-item">
-            <div class="card" style="width: 100%">
-              <img [src]="juego.img" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <p>{{juego.descripcion}}</p>
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <button [routerLink]="['/home']" class="btn btn-primary">
-                  Back
-                </button>
-                <button (click)="onReset()" class="btn btn-primary">Reset</button>
-                <button routerLink="/details/work" class="btn btn-primary">
-                  Work
-                </button>
-                <button [routerLink]="['/details', 'jobs']" class="btn btn-primary">
-                  Jobs
-                  <!-- details/0/jo/bs -->
-                </button>
-              </div>
-            </div>
-          </section>
-        </article>
+<div class="container my-3">
+  <div id="grilla">
+    <section id="juego" class="border">
+      <div class="card">
+        <img [src]="juego.img" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p>{{juego.descripcion}}</p>
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+          <button [routerLink]="['/home']" class="btn btn-primary">
+            Back
+          </button>
+          <button (click)="onReset()" class="btn btn-primary">Reset</button>
+        </div>
       </div>
-    </div>
+    </section>
+    <section id="desarrollador" class="border">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Desarrollador</h5>
+          <p class="card-text">{{juego.idDesarrollador}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </section>
+    <section id="publicador" class="border">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Publicador</h5>
+          <p class="card-text">{{juego.idPublicador}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </section>
   </div>
+</div>
+
+
+
+<!-- <div class="row justify-content-center">
+    <div class="col-8">
+      <article class="movies-container py-5">
+        <section class="movies-item">
+          <div class="card" style="width: 100%">
+            <img [src]="juego.img" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <p>{{juego.descripcion}}</p>
+              <h5 class="card-title"></h5>
+              <p class="card-text"></p>
+              <button [routerLink]="['/home']" class="btn btn-primary">
+                Back
+              </button>
+              <button (click)="onReset()" class="btn btn-primary">Reset</button>
+              <button routerLink="/details/work" class="btn btn-primary">
+                Work
+              </button>
+              <button [routerLink]="['/details', 'jobs']" class="btn btn-primary">
+                Jobs
+              </button>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div> -->

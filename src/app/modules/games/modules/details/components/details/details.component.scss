@@ -1,0 +1,44 @@
+.juego-container {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+#grilla {
+  background-color: red;
+  display: grid;
+  grid-template-areas:
+    "juego juego"
+    "desarrollador publicador";
+  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+section#juego {
+  background-color: green;
+  display: grid;
+  justify-content: center;
+  grid-area: juego;
+}
+section#desarrollador {
+  grid-area: desarrollador;
+  background-color: blue;
+  display: grid;
+  justify-content: center;
+}
+section#publicador {
+  grid-area: publicador;
+  background-color: yellow;
+  display: grid;
+  justify-content: center;
+}
