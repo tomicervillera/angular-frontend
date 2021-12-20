@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '@app/services/login.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -6,20 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  logged = false;
-  constructor() {}
+  constructor(private loginSrv : LoginService) {}
 
-  ngOnInit(): void {}
+  logged: boolean = false;
+  subscription: Subscription = new Subscription();
 
-  onLogin() {
-    // console.log('Login');
-    this.logged = true;
-    window.localStorage.setItem('logged', 'true');
+  ngOnInit(): void {
+    this.subscription = this.loginSrv.logged.subscribe(logged => this.logged = logged)
   }
 
-  onLogout() {
-    // console.log('Logout');
-    this.logged = false;
-    window.localStorage.removeItem('logged');
-  }
+  // onLogin() {
+  //   console.log('Login');
+  //   this.logged = true;
+  //   window.localStorage.setItem('logged', 'true');
+  // }
+
+  // onLogout() {
+  //   console.log('Logout');
+  //   this.logged = false;
+  //   window.localStorage.removeItem('logged');
+  // }
 }

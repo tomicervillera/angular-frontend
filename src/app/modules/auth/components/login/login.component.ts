@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '@app/services/login.service';
 import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,14 @@ export class LoginComponent implements OnInit {
   contrasena: string = '';
   usuario: any = {};
 
+  logged : boolean = false;
+  subscription: Subscription = new Subscription();
+
   constructor(private loginSrv: LoginService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscription = this.loginSrv.logged.subscribe(logged => this.logged = logged)
+  }
 
   log() {
     console.log('component login');
@@ -26,6 +32,7 @@ export class LoginComponent implements OnInit {
       this.usuario = { ...response.data };
       //console.log(this.usuario);
       if (this.usuario.nombreUsuario){
+        this.loginSrv.changeLoggedStatus(true);
         this.router.navigate(['/games']);
       }
     });
