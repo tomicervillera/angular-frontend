@@ -43,10 +43,12 @@ section#desarrollador {
   background-color: blue;
   display: grid;
   justify-content: center;
+  align-items: center
 }
 section#publicador {
   grid-area: publicador;
   background-color: yellow;
   display: grid;
   justify-content: center;
+  align-items: center;
 }

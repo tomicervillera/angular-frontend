@@ -1,7 +1,7 @@
 <div class="container my-3">
   <div id="grilla">
     <section id="juego" class="border">
-      <div class="card">
+      <div class="card shadow">
         <img [src]="juego.img" class="card-img-top" alt="..." />
         <div class="card-body">
           <p>{{juego.descripcion}}</p>
@@ -14,7 +14,7 @@
       </div>
     </section>
     <section id="desarrollador" class="border">
-      <div class="card">
+      <div class="card shadow">
         <img [src]="desarrollador.img" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Desarrollador</h5>
@@ -24,11 +24,11 @@
       </div>
     </section>
     <section id="publicador" class="border">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+      <div class="card shadow">
+        <img [src]="publicador.img" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Publicador</h5>
-          <p class="card-text">{{juego.idPublicador}}</p>
+          <p class="card-text">{{publicador.nombre}}</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
