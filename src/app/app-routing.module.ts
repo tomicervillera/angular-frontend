@@ -7,17 +7,18 @@ import { AuthGuard } from './shared/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'games',
     pathMatch: 'full',
   },
   // {
-  //   path: 'work',
-  //   component: WorkComponent,
+  //   path: 'home',
+  //   loadChildren: () =>
+  //     import('./modules/home/home.module').then((m) => m.HomeModule),
   // },
   {
-    path: 'home',
+    path: 'games',
     loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
+      import('./modules/games/games.module').then((m) => m.GamesModule),
   },
   {
     path: 'auth',
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'games',
     pathMatch: 'full',
   },
 ];
