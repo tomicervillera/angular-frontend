@@ -1,0 +1,5 @@
+<article #games class="cards-container">
+    <section *ngFor="let publicador of publicadores; let i = index" class="movies-item">
+        <app-card [publicador]="publicador" [index]="i"></app-card>
+    </section>
+</article>

@@ -21,6 +21,11 @@ const routes: Routes = [
       import('./modules/developers/developers.module').then((m) => m.DevelopersModule),
   },
   {
+    path: 'publishers',
+    loadChildren: () =>
+      import('./modules/publishers/publishers.module').then((m) => m.PublishersModule),
+  },
+  {
     path: 'games',
     loadChildren: () =>
       import('./modules/games/games.module').then((m) => m.GamesModule),

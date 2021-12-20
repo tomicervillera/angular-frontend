@@ -1,0 +1,15 @@
+#grilla {
+    display: grid;
+    grid-template-areas:
+      "publicador";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  section#publicador{
+    display: grid;
+    justify-content: center;
+    grid-area: publicador;
+  }
+  

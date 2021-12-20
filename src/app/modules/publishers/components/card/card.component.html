@@ -1,0 +1,9 @@
+<div class="card shadow" style="width: 100%">
+    <img [src]="publicador.img" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ publicador.nombre }}</h5>
+      <button [routerLink]="['/publishers', 'details', publicador._id]" class="btn btn-primary">
+        Detalles
+      </button>
+    </div>
+  </div>
