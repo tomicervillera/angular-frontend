@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { Heroe, Juego } from '@app/models/api-models';
-import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef} from '@angular/core';
+import { Juego } from '@app/models/api-models';
 
 import { Subscription } from 'rxjs';
 import { JuegosService } from '@app/services/juegos.service';
@@ -20,6 +19,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     // this.heroes = this.heroesSvc.heroes;
   }
 
+
   ngOnInit(): void {
     this.subscription = this.juegosSvc.getInitialJuegos().subscribe((juegos: Juego[]) => {
       this.juegos = juegos;
@@ -27,6 +27,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.juegosSvc.getJuegos();
     this.subscription.unsubscribe();
   }
 }

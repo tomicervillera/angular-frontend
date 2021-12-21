@@ -26,6 +26,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.publicadoresSvc.getPublicadores();
     this.subscription.unsubscribe();
   }
 }

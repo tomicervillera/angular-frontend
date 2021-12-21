@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit {
       this.desarrolladoresSvc
         .getDesarrolladorById(params['id'])
         .subscribe((response) => (this.desarrollador = { ...response.data }));
-      console.log(this.desarrollador);
     });
   }
 

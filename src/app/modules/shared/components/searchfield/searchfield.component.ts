@@ -33,7 +33,6 @@ export class SearchfieldComponent implements OnInit {
 
   filter($event: any) {
     $event.preventDefault();
-    console.log(this.url);
     if (this.url === '/home' || this.url === '/games') {
       this.juegosSvc.filterJuegos(this.search.trim());
       this.clear = false;

@@ -74,8 +74,6 @@ export class JuegosService {
     const filteredJuegos = this.juegos$.value.filter((juego) =>
       juego.nombre.toLowerCase().includes(text.toLowerCase())
     );
-    console.log(text, filteredJuegos);
-
     this.juegos$.next(filteredJuegos);
   }
 

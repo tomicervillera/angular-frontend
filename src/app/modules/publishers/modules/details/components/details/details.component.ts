@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit {
       this.publicadoresSvc
         .getPublicadorById(params['id'])
         .subscribe((response) => (this.publicador = { ...response.data }));
-      console.log(this.publicador);
     });
   }
 
