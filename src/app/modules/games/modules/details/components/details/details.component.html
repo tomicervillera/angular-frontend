@@ -1,6 +1,56 @@
 <div class="container my-3">
   <div id="grilla">
-    <section id="juego" class="border">
+    <section id="juego" class="">
+      <div class="card shadow">
+        <img [src]="juego.img" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{juego.nombre}}</h5>
+          <p class="card-text">{{juego.descripcion}}</p>
+          <p class="card-text">Género: {{juego.genero}}<br>Fecha de Publicación: {{juego.fechaPublicacion | date:
+            'dd/MM/yyyy' }}</p>
+          <p class="card-text"></p>
+          <button [routerLink]="['/home']" class="btn btn-primary">
+            Atrás
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="datos-juego" class="">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+          <div class="card shadow">
+            <img [src]="desarrollador.img" class="card-img-top">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Desarrollador</h5>
+              <p class="card-text mb-4">{{desarrollador.nombre}}</p>
+              <button [routerLink]="['/developers', 'details', desarrollador._id]"
+                class="btn btn-primary mt-auto align-self-start">Detalles</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+          <div class="card shadow">
+            <img [src]="publicador.img" class="card-img-top">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Publicador</h5>
+              <p class="card-text mb-4">{{publicador.nombre}}</p>
+              <button [routerLink]="['/publishers', 'details', publicador._id]"
+                class="btn btn-primary mt-auto align-self-start">Detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="container my-3">
+  <div id="grilla">
+    <section id="juego" class="">
       <div class="card shadow">
         <img [src]="juego.img" class="card-img-top" alt="..." />
         <div class="card-body">
@@ -13,7 +63,7 @@
         </div>
       </div>
     </section>
-    <section id="desarrollador" class="border">
+    <section id="desarrollador" class="">
       <div class="card shadow">
         <img [src]="desarrollador.img" class="card-img-top" alt="...">
         <div class="card-body">
@@ -23,7 +73,7 @@
         </div>
       </div>
     </section>
-    <section id="publicador" class="border">
+    <section id="publicador" class="">
       <div class="card shadow">
         <img [src]="publicador.img" class="card-img-top" alt="...">
         <div class="card-body">
@@ -34,33 +84,4 @@
       </div>
     </section>
   </div>
-</div>
-
-
-
-<!-- <div class="row justify-content-center">
-    <div class="col-8">
-      <article class="movies-container py-5">
-        <section class="movies-item">
-          <div class="card" style="width: 100%">
-            <img [src]="juego.img" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <p>{{juego.descripcion}}</p>
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <button [routerLink]="['/home']" class="btn btn-primary">
-                Back
-              </button>
-              <button (click)="onReset()" class="btn btn-primary">Reset</button>
-              <button routerLink="/details/work" class="btn btn-primary">
-                Work
-              </button>
-              <button [routerLink]="['/details', 'jobs']" class="btn btn-primary">
-                Jobs
-              </button>
-            </div>
-          </div>
-        </section>
-      </article>
-    </div>
-  </div> -->
+</div> -->

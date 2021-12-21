@@ -33,7 +33,7 @@ export interface Juego {
   descripcion:      string;
   img:              string;
   url:              string;
-  género:           string;
+  genero:           string;
   fechaPublicacion: Date;
 }
 

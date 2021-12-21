@@ -14,41 +14,47 @@
 }
 
 #grilla {
-  background-color: red;
+  //background-color: red;
   display: grid;
   grid-template-areas:
     "juego"
-    "desarrollador"
-    "publicador";
+    "datos-juego";
   grid-template-rows: 1fr;
   gap: 1rem;
 
   @media (min-width: 768px) {
     grid-template-areas:
-    "juego juego"
-    "desarrollador publicador";
+    "juego"
+    "datos-juego";
     grid-template-rows: 1fr 0.5r;
-    grid-template-columns: 1fr 1fr;
   }
 }
 
 section#juego {
-  background-color: green;
+  //background-color: green;
   display: grid;
   justify-content: center;
   grid-area: juego;
 }
-section#desarrollador {
-  grid-area: desarrollador;
-  background-color: blue;
-  display: grid;
-  justify-content: center;
-  align-items: center
-}
-section#publicador {
-  grid-area: publicador;
-  background-color: yellow;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
+
+section#datos-juego {
+    grid-area: datos-juego;
+    display: grid;
+    justify-content: center;
+    align-items: center
+  }
+
+// section#desarrollador {
+//   grid-area: desarrollador;
+//   //background-color: blue;
+//   display: grid;
+//   justify-content: center;
+//   align-items: center
+// }
+// section#publicador {
+//   grid-area: publicador;
+//  // background-color: yellow;
+//   display: grid;
+//   justify-content: center;
+//   align-items: center;
+// }

@@ -21,7 +21,7 @@ export class JuegosService {
         'Disfruta de la nueva generación de la franquicia de lucha n.º 1. Mortal Kombat X reúne un aspecto cinematográfico y una mecánica de juego nunca vistos.',
       img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/307780/header.jpg?t=1588110604',
       url: 'https://games.crazygames.com/es_ES/mortal-kombat-karnage/index.html',
-      género: 'Pelea',
+      genero: 'Pelea',
       fechaPublicacion: new Date('01/01/2021'),
     },
   ];
