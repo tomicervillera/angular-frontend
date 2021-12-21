@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '@app/services/login.service';
 import { Subscription } from 'rxjs';
 
@@ -8,13 +9,19 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private loginSrv : LoginService) {}
+  constructor(private loginSrv: LoginService, private router : Router) {}
 
   logged: boolean = false;
   subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
-    this.subscription = this.loginSrv.logged.subscribe(logged => this.logged = logged)
+    this.subscription = this.loginSrv.logged.subscribe((logged) => (this.logged = logged));
+  }
+
+  onLogout() {
+    this.loginSrv.logout();
+    this.loginSrv.changeLoggedStatus(false);
+    this.router.navigate(['/']);
   }
 
   // onLogin() {

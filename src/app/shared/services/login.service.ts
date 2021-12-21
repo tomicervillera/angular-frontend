@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '@app/models/api-models';
@@ -18,10 +18,14 @@ export class LoginService {
     this.logged$.next(status);
   }
 
-  login(nombreUsuario: string, contraseña: string) {
+  async login(nombreUsuario: string, contraseña: string) {
     return this.http.post<Response>(`${environment.baseUrl}login/`, {
       nombreUsuario: nombreUsuario,
       contraseña: contraseña,
     });
+  }
+
+  logout() {
+    return this.http.delete<Response>(`${environment.baseUrl}login/`);
   }
 }

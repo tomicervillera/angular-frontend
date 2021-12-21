@@ -2,5 +2,5 @@
   <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="search" name="search"
     [(ngModel)]="search" />
   <button class="btn btn-primary me-2" type="submit"><i class="fas fa-search"></i></button>
-  <button *ngIf="clear" (click)="onClear()" class="btn btn-danger me-2" type="button">Limpiar</button>
+  <button *ngIf="!clear" (click)="onClear()" class="btn btn-danger me-2" type="button">Limpiar</button>
 </form>

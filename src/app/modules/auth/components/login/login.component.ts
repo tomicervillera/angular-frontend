@@ -27,19 +27,17 @@ export class LoginComponent implements OnInit {
     console.log('component login');
   }
 
-  login($event: any) {
+  async login($event: any) {
     $event.preventDefault();
-    this.loginSrv.login(this.nombreUsuario, this.contrasena).subscribe((response: any) => {
+
+    (await this.loginSrv.login(this.nombreUsuario, this.contrasena)).subscribe((response: any) => {
       this.usuario = { ...response.data };
-      //console.log(this.usuario);
-      
+      if (this.usuario.nombreUsuario) {
+        this.loginSrv.changeLoggedStatus(true);
+        this.router.navigate(['/games']);
+      } else {
+        this.error = true;
+      }
     });
-    if (this.usuario.nombreUsuario) {
-      this.loginSrv.changeLoggedStatus(true);
-      this.router.navigate(['/games']);
-    } else {
-      this.error = true;
-      console.log(`Error${this.error}`);
-    }
   }
 }
