@@ -8,12 +8,11 @@
             <div class="card shadow-lg">
                 <div class="card-body p-5">
                     <h1 class="fs-4 card-title fw-bold mb-4">Iniciar sesión</h1>
-                    <form (submit)="login($event)" class="needs-validation" novalidate="" autocomplete="off"
-                        data-bitwarden-watching="1">
+                    <form #loginForm="ngForm" (ngSubmit)="login($event)">
                         <div class="mb-3">
                             <label class="mb-2 text-muted" for="email">Nombre de usuario</label>
-                            <input id="username" class="form-control" name="username" value="" required=""
-                                autofocus="" [(ngModel)]="nombreUsuario">
+                            <input class="form-control" type="text" required #name="ngModel" class="form-control" id="username"
+                                name="username" [(ngModel)]="nombreUsuario">
                             <div class="invalid-feedback">
                                 Nombre de usuario inválido
                             </div>
@@ -26,18 +25,14 @@
                                     Olvidé mi contraseña
                                 </a>
                             </div>
-                            <input id="password" type="password" class="form-control" name="password" required="" [(ngModel)]="contrasena">
+                            <input id="password" type="password" class="form-control" name="password" required=""
+                                [(ngModel)]="contrasena">
                             <div *ngIf="error" class="text-danger fw-bold">
                                 Usuario o contraseña incorrecta.
                             </div>
                         </div>
-
                         <div class="d-flex align-items-center">
-                            <!-- <div class="form-check">
-                                <input type="checkbox" name="remember" id="remember" class="form-check-input">
-                                <label for="remember" class="form-check-label">Remember Me</label>
-                            </div> -->
-                            <button type="submit" class="btn btn-primary ms-auto">
+                            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary ms-auto">
                                 Iniciar sesión
                             </button>
                         </div>

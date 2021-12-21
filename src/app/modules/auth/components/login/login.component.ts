@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.loginSrv.changeLoggedStatus(true);
         this.router.navigate(['/games']);
       }
-    });
-      this.error = true;
+    }, error => this.error = true);
+      
   }
 }
