@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { DesarrolladoresService } from '@app/services/desarrolladores.service';
 
@@ -10,7 +11,8 @@ import { DesarrolladoresService } from '@app/services/desarrolladores.service';
 export class DetailsComponent implements OnInit {
   desarrollador: any = {};
 
-  constructor(private actRoute: ActivatedRoute, private desarrolladoresSvc: DesarrolladoresService) {
+  constructor(private actRoute: ActivatedRoute, private desarrolladoresSvc: DesarrolladoresService, private titleSvc: Title) {
+    this.titleSvc.setTitle('Detalles');
     this.actRoute.params.subscribe((params) => {
       this.desarrolladoresSvc
         .getDesarrolladorById(params['id'])

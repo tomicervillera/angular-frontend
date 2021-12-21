@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Juego } from '@app/models/api-models';
 import { DesarrolladoresService } from '@app/services/desarrolladores.service';
@@ -19,31 +20,21 @@ export class DetailsComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private juegosSvc: JuegosService,
     private desarrolladoresSvc: DesarrolladoresService,
-    private publicadoresSvc : PublicadoresService
+    private publicadoresSvc: PublicadoresService,
+    private titleSvc: Title
   ) {
-    //Obtener juego en específico
-    // this.actRoute.params.subscribe((params) => {
-    //   this.juegosSvc.getJuegoById2(params['id']).subscribe((response) => (this.juego = { ...response.data }));
-    // });
-
+    this.titleSvc.setTitle('Detalles');
     this.actRoute.params.subscribe((params) => {
       this.juegosSvc.getJuegoById2(params['id']).subscribe((response) => {
         this.juego = { ...response.data };
         this.desarrolladoresSvc
           .getDesarrolladorById(this.juego.idDesarrollador)
           .subscribe((response) => (this.desarrollador = { ...response.data }));
-          this.publicadoresSvc
+        this.publicadoresSvc
           .getPublicadorById(this.juego.idPublicador)
           .subscribe((response) => (this.publicador = { ...response.data }));
       });
     });
-
-    //Obtener desarrollador asociado
-
-    console.log(this.juego.idDesarrollador);
-    // this.desarrolladorSvc
-    //   .getDesarrolladorById(this.juego.idDesarrollador)
-    //   .subscribe((response) => (this.desarrollador = { ...response.data }));
   }
 
   ngOnInit(): void {}

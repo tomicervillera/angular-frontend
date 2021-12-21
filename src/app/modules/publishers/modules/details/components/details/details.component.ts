@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { PublicadoresService } from '@app/services/publicadores.service';
 
@@ -10,7 +11,8 @@ import { PublicadoresService } from '@app/services/publicadores.service';
 export class DetailsComponent implements OnInit {
   publicador: any = {};
 
-  constructor(private actRoute: ActivatedRoute, private publicadoresSvc: PublicadoresService) {
+  constructor(private actRoute: ActivatedRoute, private publicadoresSvc: PublicadoresService, private titleSvc: Title) {
+    this.titleSvc.setTitle('Detalles');
     this.actRoute.params.subscribe((params) => {
       this.publicadoresSvc
         .getPublicadorById(params['id'])

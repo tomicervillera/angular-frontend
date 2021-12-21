@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '@app/services/login.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,9 @@ export class LoginComponent implements OnInit {
   logged: boolean = false;
   subscription: Subscription = new Subscription();
 
-  constructor(private loginSrv: LoginService, private router: Router) {}
+  constructor(private loginSrv: LoginService, private router: Router, private titleSvc: Title) {
+    this.titleSvc.setTitle('Iniciar sesión');
+  }
 
   ngOnInit(): void {
     this.subscription = this.loginSrv.logged.subscribe((logged) => (this.logged = logged));
