@@ -13,6 +13,7 @@ const routes: Routes = [
   {
     path: 'details',
     loadChildren: () => import('./modules/details/details.module').then((m) => m.DetailsModule),
+    canActivate: [AuthGuard]
   },
 ];
 
