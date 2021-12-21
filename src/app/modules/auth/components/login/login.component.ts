@@ -38,9 +38,8 @@ export class LoginComponent implements OnInit {
       if (this.usuario.nombreUsuario) {
         this.loginSrv.changeLoggedStatus(true);
         this.router.navigate(['/games']);
-      } else {
-        this.error = true;
       }
     });
+      this.error = true;
   }
 }
