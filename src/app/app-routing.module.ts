@@ -36,11 +36,6 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'details',
-    loadChildren: () =>
-      import('./modules/details/details.module').then((m) => m.DetailsModule),
-  },
-  {
     path: '**',
     redirectTo: 'games',
     pathMatch: 'full',
