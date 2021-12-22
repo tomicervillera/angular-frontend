@@ -37,7 +37,7 @@ export class PublicadoresService {
         })
       )
       .subscribe((data) => {
-        this.publicadores$.next(data as Publicador[]);
+        this.publicadores$.next((data as Publicador[]).sort((a, b) => a.nombre.localeCompare(b.nombre)));
       });
   }
 
@@ -54,7 +54,7 @@ export class PublicadoresService {
         })
       )
       .subscribe((data) => {
-        this.publicadores$.next(data as Publicador[]);
+        this.publicadores$.next((data as Publicador[]).sort((a, b) => a.nombre.localeCompare(b.nombre)));
         const filteredPublicadores = this.publicadores$.value.filter((publicador) =>
           publicador.nombre.toLowerCase().includes(text.toLowerCase())
         );

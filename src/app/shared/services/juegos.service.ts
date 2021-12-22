@@ -57,7 +57,7 @@ export class JuegosService {
         })
       )
       .subscribe((data) => {
-        this.juegos$.next(data as Juego[]);
+        this.juegos$.next((data as Juego[]).sort((a, b) => a.nombre.localeCompare(b.nombre)));
       });
   }
 
@@ -79,7 +79,7 @@ export class JuegosService {
         })
       )
       .subscribe((data) => {
-        this.juegos$.next(data as Juego[]);
+        this.juegos$.next((data as Juego[]).sort((a, b) => a.nombre.localeCompare(b.nombre)));
         const filteredJuegos = this.juegos$.value.filter((juego) =>
           juego.nombre.toLowerCase().includes(text.toLowerCase())
         );

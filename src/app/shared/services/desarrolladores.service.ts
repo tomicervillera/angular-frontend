@@ -37,7 +37,7 @@ export class DesarrolladoresService {
         })
       )
       .subscribe((data) => {
-        this.desarrolladores$.next(data as Desarrollador[]);
+        this.desarrolladores$.next((data as Desarrollador[]).sort((a, b) => a.nombre.localeCompare(b.nombre)));
       });
   }
 
@@ -54,7 +54,7 @@ export class DesarrolladoresService {
         })
       )
       .subscribe((data) => {
-        this.desarrolladores$.next(data as Desarrollador[]);
+        this.desarrolladores$.next((data as Desarrollador[]).sort((a, b) => a.nombre.localeCompare(b.nombre)));
         const filteredDesarrolladores = this.desarrolladores$.value.filter((desarrollador) =>
           desarrollador.nombre.toLowerCase().includes(text.toLowerCase())
         );
