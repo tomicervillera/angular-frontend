@@ -46,12 +46,20 @@ export class DesarrolladoresService {
   }
 
   filterDesarrolladores(text: string) {
-    const filteredDesarrolladores = this.desarrolladores$.value.filter((desarrollador) =>
-      desarrollador.nombre.toLowerCase().includes(text.toLowerCase())
-    );
-    console.log(text, filteredDesarrolladores);
-
-    this.desarrolladores$.next(filteredDesarrolladores);
+    this.http
+      .get<Response>(`${environment.baseUrl}desarrolladores`)
+      .pipe(
+        map((response) => {
+          return response.data;
+        })
+      )
+      .subscribe((data) => {
+        this.desarrolladores$.next(data as Desarrollador[]);
+        const filteredDesarrolladores = this.desarrolladores$.value.filter((desarrollador) =>
+          desarrollador.nombre.toLowerCase().includes(text.toLowerCase())
+        );
+        this.desarrolladores$.next(filteredDesarrolladores);
+      });
   }
 
   resetDesarrolladores() {

@@ -46,12 +46,20 @@ export class PublicadoresService {
   }
 
   filterPublicadores(text: string) {
-    const filteredPublicadores = this.publicadores$.value.filter((publicador) =>
-      publicador.nombre.toLowerCase().includes(text.toLowerCase())
-    );
-    console.log(text, filteredPublicadores);
-
-    this.publicadores$.next(filteredPublicadores);
+    this.http
+      .get<Response>(`${environment.baseUrl}publicadores`)
+      .pipe(
+        map((response) => {
+          return response.data;
+        })
+      )
+      .subscribe((data) => {
+        this.publicadores$.next(data as Publicador[]);
+        const filteredPublicadores = this.publicadores$.value.filter((publicador) =>
+          publicador.nombre.toLowerCase().includes(text.toLowerCase())
+        );
+        this.publicadores$.next(filteredPublicadores);
+      });
   }
 
   resetPublicadores() {
