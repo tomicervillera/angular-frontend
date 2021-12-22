@@ -71,10 +71,20 @@ export class JuegosService {
   }
 
   filterJuegos(text: string) {
-    const filteredJuegos = this.juegos$.value.filter((juego) =>
-      juego.nombre.toLowerCase().includes(text.toLowerCase())
-    );
-    this.juegos$.next(filteredJuegos);
+    this.http
+      .get<Response>(`${environment.baseUrl}juegos`)
+      .pipe(
+        map((response) => {
+          return response.data;
+        })
+      )
+      .subscribe((data) => {
+        this.juegos$.next(data as Juego[]);
+        const filteredJuegos = this.juegos$.value.filter((juego) =>
+          juego.nombre.toLowerCase().includes(text.toLowerCase())
+        );
+        this.juegos$.next(filteredJuegos);
+      });
   }
 
   resetJuegos() {
